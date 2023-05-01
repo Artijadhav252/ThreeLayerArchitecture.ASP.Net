@@ -1,0 +1,43 @@
+﻿@model List<UserRegistrationViewModel>
+<h1>Index View</h1>
+<table class="table tbl-primary">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>EmailId</td>
+            <td>FirstName</td>
+            <td>LastName</td>
+            <td>MobileNumber</td>
+            <td>GenderName</td>
+            <td>AdharNumber</td>
+            <td>Category</td>
+            <td>Delete</td>
+            <td>Update</td>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.EmailId</td>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@user.GenderName</td>
+                <td>@user.MobileNumber</td>
+                <td>@user.AdharNumber</td>
+                <td>@user.Category</td>
+
+                <td><a asp-action="Delete" asp-controller="User" asp-route-id="@user.Id" class="btn btn-danger" onclick="return confirm('Are you sure you wish to delete this User?');">Delete</a></td>
+                <td><a asp-action="Update" asp-controller="User" asp-route-id="@user.Id" class="btn btn-danger">Update</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<div class="form-group">
+    
